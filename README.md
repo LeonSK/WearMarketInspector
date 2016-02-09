@@ -10,4 +10,4 @@ Retrieve Wear Value (Float Value) from Steam Community Market using http://csgo.
 * Tampermonkey - Chrome
 
 #Installation
-WearMarketInspector (script v1) can be installed on Firefox using Greasemonkey on Mozilla Firefox. After you install Greasemonkey extension, just click [here](https://github.com/LeonSK/WearMarketInspector/raw/master/master.user.js) and follow the install instructions
+WearMarketInspector (script v1) can be installed on Mozilla Firefox using [Greasemonkey](https://addons.mozilla.org/es/firefox/addon/greasemonkey/) or on Google Chrome using [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo). After you install Greasemonkey extension, just click [here](https://github.com/LeonSK/WearMarketInspector/raw/master/master.user.js) and follow the install instructions
