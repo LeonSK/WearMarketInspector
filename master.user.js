@@ -1,5 +1,9 @@
 // ==UserScript==
-// @name        FLOAT INSPECTOR
+// @name       FLOAT INSPECTOR
+// @author     LeonSK
+// @namespace
+// @version    1
+// @description  Improves Steam market buy orders (hot-swap view currency changing and extended listings)
 // @include     http://steamcommunity.com/market/listings/730/*
 // @require		http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
 // @require		https://gist.github.com/raw/2625891/waitForKeyElements.js
