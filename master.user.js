@@ -48,6 +48,7 @@ function LoadFloatValue(){
 			else if(results['status'] == 4) message = "Miss Parameter";
 			else if(results['status'] == 2) message = "Click Again";
 			else if(results['status'] == 3) message = "Not Access Pass";
+			else if(results['status'] == 6) message = "Login on csgo.exchange";
 			else if(results['status'] == 9) message = "Quota Limit";			
 				
 			$("#" + rowid + " .market_listing_wear span").text(message);
