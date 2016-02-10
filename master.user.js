@@ -1,29 +1,19 @@
 // ==UserScript==
-// @name       FLOAT INSPECTOR
-// @author     LeonSK
-// @namespace
-// @version    1
-// @description  Retrieve Wear Value (Float Value) from Steam Community Market using http://csgo.exchange API
+// @name        FLOAT INSPECTOR
 // @include     http://steamcommunity.com/market/listings/730/*
 // @require		http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
 // @require		https://gist.github.com/raw/2625891/waitForKeyElements.js
 // @grant    	GM_addStyle
 // @grant		GM_xmlhttpRequest
 // ==/UserScript==
-
-waitForKeyElements (
-    "#searchResultsRows div.market_listing_table_header",
-    showMarketID
-);
+waitForKeyElements ("#searchResultsRows div.market_listing_table_header", showMarketID);
 
 function showMarketID(){	
-	$(".market_listing_seller").after("<span style='width:140px' class='market_listing_right_cell market_listing_action_buttons market_listing_wear'>WEAR</span>");
-	
+	$(".market_listing_seller").after("<span style='width:140px' class='market_listing_right_cell market_listing_action_buttons market_listing_wear'>WEAR</span>");	
 	$('.market_listing_row').each( function(e) {				
 		$(this).find('.market_listing_wear').empty();
-		$(this).find('.market_listing_wear').append("<div style='width:140px' class='myButton market_listing_right_cell market_listing_action_buttons' title='" + $(this).attr('id') + "'><a class='btn_green_white_innerfade btn_small'><span>Get Wear Value (Float)</span></a></div>");
-	});
-	
+		$(this).find('.market_listing_wear').append("<div style='width:125px' class='myButton market_listing_right_cell market_listing_action_buttons' title='" + $(this).attr('id') + "'><a class='btn_green_white_innerfade btn_small'><span>Get Wear Value (Float)</span></a></div>");
+	});	
 	$(".myButton").click (LoadFloatValue);
 }
 
@@ -42,10 +32,9 @@ function LoadFloatValue(){
 	GM_xmlhttpRequest ({
 		method:     "GET",
 		url:        url,		
-		headers:    {
-			"Content-Type": "application/x-www-form-urlencoded"
-		},
+		headers:    {"Content-Type": "application/x-www-form-urlencoded"},
 		onload:     function (response) {
+			console.log(response.responseText);
 			results = jQuery.parseJSON(response.responseText);
 			if(results['status'] == 1) message = results['exterior'];
 			else if(results['status'] == 0) message = "Bad Parameters";
@@ -53,9 +42,9 @@ function LoadFloatValue(){
 			else if(results['status'] == 2) message = "Click Again";
 			else if(results['status'] == 3) message = "Not Access Pass";
 			else if(results['status'] == 6) message = "Login on csgo.exchange";
-			else if(results['status'] == 9) message = "Quota Limit";			
-				
+			else if(results['status'] == 9) message = "Quota Limit";						
 			$("#" + rowid + " .market_listing_wear span").text(message);
+			$("#" + rowid + " .market_listing_item_name_block").append("<br><span class='market_listing_game_name'>Pattern Index: " + results['pattern'] + "</span>");
 			$(".myButton").click (LoadFloatValue);
 		}
 	});
