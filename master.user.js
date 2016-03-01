@@ -49,7 +49,7 @@ function LoadFloatValue(){
 			if($("#" + rowid + " .market_listing_pattern").length == 0){
 				var doppler = "";
 				if(typeof results['doppler'] !== 'undefined') doppler = " (Doppler " + results['doppler'] + ")";
-				$("#" + rowid + " .market_listing_item_name_block").append("<br><span class='market_listing_game_name market_listing_pattern'>Pattern Index: " + results['pattern'] + doppler + "</span>");
+				if(typeof results['pattern'] !== 'undefined') $("#" + rowid + " .market_listing_item_name_block").append("<br><span class='market_listing_game_name market_listing_pattern'>Pattern Index: " + results['pattern'] + doppler + "</span>");
 			}
 			$(".myButton").click (LoadFloatValue);
 		}
