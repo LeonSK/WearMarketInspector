@@ -38,13 +38,19 @@ function LoadFloatValue(){
 			results = jQuery.parseJSON(response.responseText);
 			if(results['status'] == 1) message = results['exterior'];
 			else if(results['status'] == 0) message = "Bad Parameters";
-			else if(results['status'] == 4) message = "Miss Parameter";
-			else if(results['status'] == 2) message = "Click Again";
-			else if(results['status'] == 3) message = "Not Access Pass";
+            		else if(results['status'] == 2) message = "Click Again";
+            		else if(results['status'] == 3) message = "Not Access Pass";
+			else if(results['status'] == 4) message = "Miss Parameter";				
 			else if(results['status'] == 6) message = "Login on csgo.exchange";
+            		else if(results['status'] == 7) message = "Update System";
+            		else if(results['status'] == 8) message = "Inspect Link Down";
 			else if(results['status'] == 9) message = "Quota Limit";						
 			$("#" + rowid + " .market_listing_wear span").text(message);
-			$("#" + rowid + " .market_listing_item_name_block").append("<br><span class='market_listing_game_name'>Pattern Index: " + results['pattern'] + "</span>");
+			if($("#" + rowid + " .market_listing_pattern").length == 0){
+				var doppler = "";
+				if(typeof results['doppler'] !== 'undefined') doppler = " (Doppler " + results['doppler'] + ")";
+				$("#" + rowid + " .market_listing_item_name_block").append("<br><span class='market_listing_game_name market_listing_pattern'>Pattern Index: " + results['pattern'] + doppler + "</span>");
+			}
 			$(".myButton").click (LoadFloatValue);
 		}
 	});
