@@ -2,7 +2,7 @@
 // @name        FLOAT INSPECTOR
 // @include     http://steamcommunity.com/market/listings/730/*
 // @require		http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
-// @require		https://gist.github.com/raw/2625891/waitForKeyElements.js
+// @require		https://raw.githubusercontent.com/LeonSK/WearMarketInspector/master/waitForKeyElements.js
 // @grant    	GM_addStyle
 // @grant		GM_xmlhttpRequest
 // ==/UserScript==
