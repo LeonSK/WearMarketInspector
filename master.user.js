@@ -9,7 +9,7 @@
 // ==/UserScript==
 waitForKeyElements ("#searchResultsRows div.market_listing_table_header", showMarketID);
 
-$("#market_buyorder_info").after('<div class="market_listing_filter_contents"><span class="market_listing_filter_searchhint">Search for float value <= </span><span style="position: relative; display: inline-block;"><input class="filter_search_box market_search_filter_search_box" id="market_listing_filter_float" value="" placeholder="0.XXXXXXXXXXX" name="filter" autocomplete="off" type="text"> <a class="btn_green_white_innerfade btn_small btn_searchall"><span>Get All Wears (Float Value)</span></a></span></div>');
+$("#searchResultsTable").before('<div class="market_listing_filter_contents"><span class="market_listing_filter_searchhint">Search for float value <= </span><span style="position: relative; display: inline-block;"><input class="filter_search_box market_search_filter_search_box" id="market_listing_filter_float" value="" placeholder="0.XXXXXXXXXXX" name="filter" autocomplete="off" type="text"> <a class="btn_green_white_innerfade btn_small btn_searchall"><span>Get All Wears (Float Value)</span></a></span></div>');
 $(".btn_searchall").click (LoadAll);
 
 $("#BG_bottom").css("width", "1200px");
