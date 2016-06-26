@@ -133,6 +133,8 @@ function LoadFloatValue(){
 	var hashid = unsafeWindow.g_rgListingInfo[listingid].asset.market_actions[0].link;
 	hashid = hashid.replace('steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20M%listingid%A%assetid%D', '');
 	
+	var bttn = $(this);
+	
 	var message = "";
 	var url = "http://csgo.exchange/item/floatapi/" + listingid + "/" + assetid + "/" + hashid;
 	GM_xmlhttpRequest ({
@@ -153,6 +155,9 @@ function LoadFloatValue(){
 			else if(results['status'] == 9) message = "Quota Limit";						
 			$("#" + rowid + " .market_listing_wear span").text(message);
 			if($("#" + rowid + " .market_listing_pattern").length == 0){
+				
+				if(results['exterior'] <= $("#market_listing_filter_float").val()) bttn.find('a').css('border', '2px solid red');
+				
 				var doppler = "";
 				if(typeof results['doppler'] !== 'undefined') doppler = " (Doppler " + results['doppler'] + ")";
 				if(typeof results['pattern'] !== 'undefined') $("#" + rowid + " .market_listing_item_name_block").append("<br><span class='market_listing_game_name market_listing_pattern'>Pattern Index: " + results['pattern'] + doppler + "</span>");
@@ -165,7 +170,8 @@ function LoadFloatValue(){
 						}
 					}
 					$("#" + rowid).append("<span class='market_listing_game_name market_listing_stickers' style='white-space: normal'>Stickers: " + stickers + "</span>");
-				}				
+				}
+				bttn.addClass("wearDone");				
 			}
 			$(".myButton").click (LoadFloatValue);						
 		}
