@@ -5,6 +5,7 @@
 // @require		https://raw.githubusercontent.com/LeonSK/WearMarketInspector/master/waitForKeyElements.js
 // @grant    	GM_addStyle
 // @grant		GM_xmlhttpRequest
+// @version		2.0.0
 // ==/UserScript==
 waitForKeyElements ("#searchResultsRows div.market_listing_table_header", showMarketID);
 
